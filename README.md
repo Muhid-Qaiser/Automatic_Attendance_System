@@ -18,9 +18,10 @@ This project is a Python-based implementation for detecting and recognizing face
 - None at the moment.
 
 ### Future Scope
-- Face identification and classification (matching detected faces with a database).
-- Real-time face detection using webcam or video input.
+- Face Recognition (matching detected faces with a database).
+- Real-time face detection using webcam or video input or image.
 - Enhanced accuracy with advanced pre-trained models or fine-tuning.
+- Facial Recognition Module which will be implemented using the face_recognition library or siamese neural networks.
 
 ---
 
@@ -29,21 +30,28 @@ This project is a Python-based implementation for detecting and recognizing face
 The notebook contains the following sections:
 
 ### 1. **Imports and Setup**
-- Imports all required libraries, including `cv2` (OpenCV) and `matplotlib` for image processing and visualization.
+- Imports all required libraries, including `cv2` (OpenCV), `matplotlib` and `RetinaFace` for image processing, visualization and Face Detection.
 
 ### 2. **Loading the Image**
 - Reads an image file from the local system using OpenCV.
 - Converts the image from BGR (default in OpenCV) to RGB for visualization consistency.
 
 ### 3. **Face Detection**
-- Uses a pre-trained Haar Cascade classifier for face detection (`haarcascade_frontalface_default.xml`).
-- The model is loaded into memory using OpenCV.
+- Uses a the pretrained RetinaFace model to detect faces from the loaded image.
 
-### 4. **Drawing Bounding Boxes**
-- Detected faces are highlighted with rectangles drawn over the image using OpenCV's `rectangle` function.
+### 4. **Storing the Faces**
+- Detected faces are extracted and returned as dictionary with keys being 'face_1', 'face_2' ... etc which contain information about different landmarks of each faces.
 
-### 5. **Displaying Results**
-- Displays the processed image with bounding boxes using `matplotlib`.
+### 5. **Displaying Image**
+- Displays the processed image with  using `matplotlib`.
+
+  
+### 6. **Extracting Faces from Image**
+- Detected faces are detected and extracted and returned as list of 2D array which signify a face.
+- Each face is then displayed using `matplotlib`.
+
+### 7. **Saving the Extraced Faces**
+- We use a simple code utilizing the OS library to store all faces in a separate folder in Download Directory
 
 ---
 
@@ -55,11 +63,12 @@ The notebook contains the following sections:
 - Required libraries:
   - `opencv-python`
   - `matplotlib`
+  - `retina-face`
 
 ### Installation
 Install the required Python packages using the following command:
 ```bash
-pip install opencv-python matplotlib
+pip install opencv-python matplotlib retina-face
 ```
 
 ---
@@ -91,20 +100,19 @@ pip install opencv-python matplotlib
 
 ## Future Improvements
 To enhance functionality:
-1. Integrate modern deep learning-based face detectors (e.g., MTCNN, SSD, or YOLO).
-2. Add real-time video feed detection.
-3. Extend the code to perform face recognition and matching.
+1. Add real-time video feed detection.
+2. Extend the code to perform face recognition and matching.
 
 ---
 
 ## Acknowledgments
-The face detection implementation uses OpenCV’s pre-trained Haar Cascade model. 
+The face detection implementation uses RetinaFace's pre-trained model. 
 
 ---
 
 ## Author
-- **Name**: [Your Name or Team Name]
-- **Contact**: [Your Email or Contact Information]
+- **Name**: Muhid Qaiser
+- **Contact**: i220472@nu.edu.pk
 
 --- 
 
